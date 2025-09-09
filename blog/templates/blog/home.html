@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %}
+
+{% block title %}Home | My Blog{% endblock %}
+
+{% block content %}
+    <h1>Welcome to My Blog!</h1>
+
+    <h2>All Blog Posts</h2>
+    {% for post in posts %}
+        <div style="margin-bottom: 20px;">
+            <h3><a href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h3>
+            <small>Posted on {{ post.date_posted }}</small>
+            <p>{{ post.content }}</p>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}
